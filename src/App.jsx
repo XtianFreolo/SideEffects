@@ -17,7 +17,8 @@ function App() {
         y: Math.random() * (window.innerHeight - STAR_SIZE)
       };
 
-      // Add a new star to the stars array every 25 milliseconds
+      // MODIFY SECONDS HERE TO CHANGE THE SPAWN RATE OF STARS
+      // MODIFY HERE
       setStars(prevStars => [...prevStars, newStar]);
     }, 5000);
 
