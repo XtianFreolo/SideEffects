@@ -20,6 +20,28 @@ useEffect(() => {
     return () => clearInterval(intervalId);
 }, [])
 
+function destroyStar(id) {
+    // This function removes the star with the given id from the stars array.
+    setStars(stars.filter(star => star.id !== id));
+}
+
+
+return (
+    <div className={styles.space}>
+        {
+            stars.map(star => (
+                <Star
+                    key={star.id}
+                    id={star.id}
+                    position={{ x: star.x, y: star.y }}
+                    destroyStar={destroyStar}
+                />
+            ))
+        }
+
+    </div>
+);
+
 
 
 
