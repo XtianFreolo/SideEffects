@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import Star from "./Star.jsx";
+import styles from "./Space.module.css";
+
 
 //helps avoiding spawning stars off-screen
 const STAR_SIZE = 40;
