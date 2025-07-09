@@ -1,26 +1,28 @@
 import { useEffect, useRef } from "react";
 import styles from "./Star.module.css";
 
-const starRef = useRef(null);
-// This component represents a star in the space scene.
-useEffect(() => {
-    const star = starRef.current;
-    star.focus();
-}, []);
+function Star({ id, position, destroyStar }) {
+    const starRef = useRef(null);
 
-function handleClick(event) {
-    destroyStar(id);
+    useEffect(() => {
+        starRef.current?.focus();
+    }, []);
+
+    function handleClick() {
+        destroyStar(id);
+    }
+
+    return (
+        <div
+            ref={starRef}
+            tabIndex="0"
+            onClick={handleClick}
+            style={{ left: position.x, top: position.y }}
+            className={styles.star}
+        >
+            &#9733;
+        </div>
+    );
 }
 
-return (
-    <div
-        ref={starRef}
-        tabIndex="0"
-        onClick={handleClick}
-        style={{ left: position.x, top: position.y }}
-        className={styles.star}
-    >
-        &#9733;
-    </div>
-);
-
+export default Star;
